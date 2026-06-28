@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="QuietNet logo">
+  <defs>
+    <linearGradient id="bg" x1="18" x2="112" y1="14" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071113"/>
+      <stop offset="1" stop-color="#0D1B1E"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="31" x2="99" y1="25" y2="105" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2FFFD0"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="30" fill="url(#bg)"/>
+  <path d="M64 20 99 33v25.8c0 22.2-14 42-35 50.1-21-8.1-35-27.9-35-50.1V33l35-13Z" fill="url(#mint)"/>
+  <path d="M47 61h10l14-12.5v29L57 65H47v-4Z" fill="#071113"/>
+  <path d="m84 48-38 45" fill="none" stroke="#071113" stroke-width="10" stroke-linecap="round"/>
+  <path d="M82 56c4.5 4.9 4.5 11.3 0 16.2M91 47c9.4 10.3 9.4 24.4 0 34.7" fill="none" stroke="#071113" stroke-width="6" stroke-linecap="round" opacity=".9"/>
+</svg>

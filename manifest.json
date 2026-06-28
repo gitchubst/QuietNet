@@ -1,0 +1,102 @@
+{
+  "manifest_version": 3,
+  "name": "QuietNet",
+  "short_name": "QuietNet",
+  "version": "1.0.0",
+  "description": "Make the web shut up. Block ads, trackers, popups, fake buttons, tracking links, and page clutter with a calm privacy-first control panel.",
+  "minimum_chrome_version": "113",
+  "icons": {
+    "16": "assets/icon16.png",
+    "32": "assets/icon32.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "action": {
+    "default_title": "QuietNet",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "32": "assets/icon32.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "options_page": "src/dashboard/dashboard.html",
+  "permissions": [
+    "activeTab",
+    "alarms",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "src/shared/constants.js",
+        "src/shared/utils.js",
+        "src/shared/scoring.js",
+        "src/shared/storage.js",
+        "src/content/content-utils.js",
+        "src/content/cosmetic-cleaner.js",
+        "src/content/popup-freezer.js",
+        "src/content/youtube-ad-skipper.js",
+        "src/content/clean-copy.js",
+        "src/content/element-zapper.js",
+        "src/content/breakage-guard.js"
+      ]
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ads",
+        "enabled": true,
+        "path": "rules/ads.json"
+      },
+      {
+        "id": "trackers",
+        "enabled": true,
+        "path": "rules/trackers.json"
+      },
+      {
+        "id": "annoyances",
+        "enabled": true,
+        "path": "rules/annoyances.json"
+      },
+      {
+        "id": "malware",
+        "enabled": true,
+        "path": "rules/malware.json"
+      },
+      {
+        "id": "regional-us",
+        "enabled": true,
+        "path": "rules/regional-us.json"
+      }
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "resources": [
+        "assets/*"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QuietNet</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup-shell" aria-live="polite">
+      <header class="hero">
+        <div class="brand-row">
+          <div class="brand-lockup">
+            <div class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <path d="M24 5.5 38.5 11v10.8c0 9.2-5.8 17.4-14.5 20.7C15.3 39.2 9.5 31 9.5 21.8V11L24 5.5Z" fill="currentColor"></path>
+                <path d="M17.5 23.3h4.1l5.7-5.2v12l-5.7-5.1h-4.1v-1.7Z" fill="#ffffff"></path>
+                <path d="m31.4 18.1-8.9 11.7" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <div>
+              <h1>QuietNet</h1>
+              <p>Make the web shut up.</p>
+            </div>
+          </div>
+          <button class="icon-button" id="closeButton" type="button" aria-label="Close QuietNet">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+          </button>
+        </div>
+
+        <button class="dashboard-button top-dashboard-button" id="dashboardButton" type="button">
+          <span>Open dashboard</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </button>
+
+        <button class="protection-switch" id="protectionToggle" type="button" aria-pressed="true">
+          <span>
+            <strong id="protectionLabel">Protection ON</strong>
+            <small id="protectionSubtext">This page is calmer now.</small>
+          </span>
+          <span class="switch-track"><span class="switch-thumb"></span></span>
+        </button>
+
+        <button class="protection-switch secondary-switch" id="promotionsToggle" type="button" aria-pressed="true">
+          <span>
+            <strong id="promotionsLabel">Block Promotions ON</strong>
+            <small id="promotionsSubtext">Hide promotional banners and mini video popups.</small>
+          </span>
+          <span class="switch-track"><span class="switch-thumb"></span></span>
+        </button>
+      </header>
+
+      <section class="score-card" aria-labelledby="scoreTitle">
+        <div>
+          <p class="section-label" id="scoreTitle">Noise Score</p>
+          <div class="score-line">
+            <span class="score-number" id="scoreNumber">0</span>
+            <span class="score-total">/ 100</span>
+          </div>
+          <p class="score-status" id="scoreStatus">Clean</p>
+        </div>
+        <div class="score-ring" id="scoreRing" aria-hidden="true">
+          <span id="scoreRingValue">0</span>
+        </div>
+      </section>
+
+      <section class="domain-card">
+        <div>
+          <p class="section-label">Current site</p>
+          <h2 id="domainName">Loading...</h2>
+        </div>
+        <span class="status-pill" id="cleanupStatus">Active</span>
+      </section>
+
+      <section class="stats-card" aria-label="This page">
+        <div class="stat-row">
+          <span>Ads blocked</span>
+          <strong id="adsBlocked">0</strong>
+        </div>
+        <div class="stat-row">
+          <span>Trackers stopped</span>
+          <strong id="trackersStopped">0</strong>
+        </div>
+        <div class="stat-row">
+          <span>Popups frozen</span>
+          <strong id="popupsFrozen">0</strong>
+        </div>
+        <div class="stat-row">
+          <span>Leftovers cleaned</span>
+          <strong id="leftoversCleaned">0</strong>
+        </div>
+      </section>
+
+      <section class="quick-actions" aria-label="Quick actions">
+        <button class="action-button primary" id="zapperButton" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 11h7l-1 9 9-12h-7l1-8Z"></path></svg>
+          <span>Zapper</span>
+        </button>
+        <button class="action-button" id="quietModeButton" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 9 9 0 1 0 20.5 14.2Z"></path></svg>
+          <span id="quietModeLabel">Quiet Mode</span>
+        </button>
+        <button class="action-button" id="cleanLinksButton" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.1.2l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1M14 11a5 5 0 0 0-7.1-.2l-2 2a5 5 0 0 0 7.1 7.1l1.1-1.1"></path></svg>
+          <span>Clean Links</span>
+        </button>
+        <button class="action-button" id="pauseButton" type="button" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"></path></svg>
+          <span>Pause Site</span>
+        </button>
+      </section>
+
+      <section class="pause-menu" id="pauseMenu" hidden>
+        <button type="button" data-pause="10">Pause 10 min</button>
+        <button type="button" data-pause="60">Pause 1 hour</button>
+        <button type="button" data-pause="restart">Pause until restart</button>
+        <button type="button" data-pause="off">Resume site</button>
+      </section>
+
+      <section class="tool-card">
+        <div class="tool-card-header">
+          <div>
+            <p class="section-label">Page cleanup</p>
+            <h2>Ad Leftover Scrubber</h2>
+          </div>
+          <button class="small-button" id="scrubButton" type="button">Scrub</button>
+        </div>
+        <p id="scrubStatus">Clean empty ad boxes, blank frames, sticky bars, and sponsored wrappers.</p>
+      </section>
+
+      <section class="tool-card">
+        <div class="tool-card-header">
+          <div>
+            <p class="section-label">Site profile</p>
+            <h2 id="profileTitle">Balanced</h2>
+          </div>
+          <select id="profileSelect" aria-label="Site profile"></select>
+        </div>
+        <div class="support-row">
+          <button class="small-button ghost" id="supportButton" type="button">Support this site</button>
+          <button class="small-button ghost" id="reportButton" type="button">Report issue</button>
+        </div>
+      </section>
+
+      <section class="today-card">
+        <div class="tool-card-header">
+          <div>
+            <p class="section-label">Today</p>
+            <h2><span id="todayBlocked">0</span> blocked</h2>
+          </div>
+          <div class="saved-stack">
+            <strong id="dataSaved">0 KB</strong>
+            <span id="timeSaved">0 sec saved</span>
+          </div>
+        </div>
+        <div class="mini-chart" id="miniChart" aria-label="7-day trend"></div>
+      </section>
+
+      <section class="inspector-card">
+        <div class="tool-card-header">
+          <div>
+            <p class="section-label">Blocked item inspector</p>
+            <h2>Recent blocks</h2>
+          </div>
+          <button class="small-button ghost" id="blockedItemsButton" type="button">See all</button>
+        </div>
+        <div class="blocked-list" id="blockedList">
+          <p class="empty-state">No blocked items recorded for this tab yet.</p>
+        </div>
+      </section>
+
+      <footer class="open-source-footer">
+        <span>QuietNet is open source.</span>
+        <a href="https://github.com/gitchubst/QuietNet" target="_blank" rel="noreferrer">Look at the code here</a>
+      </footer>
+
+    </main>
+    <script src="../shared/constants.js"></script>
+    <script src="../shared/utils.js"></script>
+    <script src="../shared/scoring.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

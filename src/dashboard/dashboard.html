@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QuietNet Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M24 5.5 38.5 11v10.8c0 9.2-5.8 17.4-14.5 20.7C15.3 39.2 9.5 31 9.5 21.8V11L24 5.5Z" fill="currentColor"></path><path d="M17.5 23.3h4.1l5.7-5.2v12l-5.7-5.1h-4.1v-1.7Z" fill="#ffffff"></path><path d="m31.4 18.1-8.9 11.7" stroke="#ffffff" stroke-width="3" stroke-linecap="round"></path></svg>
+          </div>
+          <div>
+            <h1>QuietNet</h1>
+            <p>Make the web shut up.</p>
+          </div>
+        </div>
+        <nav class="nav" aria-label="Dashboard sections">
+          <button class="nav-button is-active" data-section="overview" type="button">Overview</button>
+          <button class="nav-button" data-section="filters" type="button">Filters</button>
+          <button class="nav-button" data-section="rules" type="button">My Rules</button>
+          <button class="nav-button" data-section="sites" type="button">Site Controls</button>
+          <button class="nav-button" data-section="privacy" type="button">Privacy</button>
+        </nav>
+        <div class="privacy-note">Stats stay in Chrome storage on this browser unless you export them.</div>
+      </aside>
+
+      <main class="dashboard">
+        <section class="topbar">
+          <div>
+            <p class="section-label">Daily Calm Report</p>
+            <h2>Clean browsing without the noise</h2>
+          </div>
+          <button class="primary-button" id="globalToggle" type="button">Protection ON</button>
+        </section>
+
+        <section class="section is-active" id="overview">
+          <div class="metrics-grid">
+            <article class="metric-card">
+              <span>Blocked today</span>
+              <strong id="blockedToday">0</strong>
+            </article>
+            <article class="metric-card">
+              <span>All-time blocked</span>
+              <strong id="blockedAllTime">0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Data saved</span>
+              <strong id="dataSaved">0 KB</strong>
+            </article>
+            <article class="metric-card">
+              <span>Time saved</span>
+              <strong id="timeSaved">0 sec</strong>
+            </article>
+          </div>
+
+          <div class="two-column">
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="section-label">Noise trend</p>
+                  <h3>7-day blocks</h3>
+                </div>
+                <span class="soft-pill" id="trendTotal">0 total</span>
+              </div>
+              <div class="trend-chart" id="trendChart"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="section-label">Site radar</p>
+                  <h3>Today’s sites</h3>
+                </div>
+              </div>
+              <div class="radar-list" id="siteRadar"></div>
+            </article>
+          </div>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-label">Blocked item inspector</p>
+                <h3>Recent blocked requests by tab</h3>
+              </div>
+            </div>
+            <div class="inspector-table" id="inspectorTable"></div>
+          </article>
+        </section>
+
+        <section class="section" id="filters">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-label">Filter lists</p>
+                <h3>Blocking categories</h3>
+              </div>
+            </div>
+            <div class="toggle-list" id="filterList"></div>
+          </article>
+        </section>
+
+        <section class="section" id="rules">
+          <div class="two-column">
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="section-label">Custom blocked domains</p>
+                  <h3>Block a domain</h3>
+                </div>
+              </div>
+              <form class="inline-form" id="blockForm">
+                <input id="blockDomain" type="text" placeholder="ads.example.com" autocomplete="off">
+                <button class="primary-button" type="submit">Block</button>
+              </form>
+              <div class="pill-list" id="customBlockList"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="section-label">Custom allowed domains</p>
+                  <h3>Allow a domain</h3>
+                </div>
+              </div>
+              <form class="inline-form" id="allowForm">
+                <input id="allowDomain" type="text" placeholder="cdn.example.com" autocomplete="off">
+                <button class="primary-button" type="submit">Allow</button>
+              </form>
+              <div class="pill-list" id="customAllowList"></div>
+            </article>
+          </div>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-label">Zapped elements</p>
+                <h3>Saved cosmetic rules</h3>
+              </div>
+            </div>
+            <div class="rules-table" id="zappedRules"></div>
+          </article>
+        </section>
+
+        <section class="section" id="sites">
+          <div class="two-column">
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="section-label">Support List</p>
+                  <h3>Sites you allow</h3>
+                </div>
+              </div>
+              <div class="pill-list" id="supportList"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="section-label">Strict List</p>
+                  <h3>Extra quiet sites</h3>
+                </div>
+              </div>
+              <div class="pill-list" id="strictList"></div>
+            </article>
+          </div>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-label">Per-site profile</p>
+                <h3>Assign a blocking profile</h3>
+              </div>
+            </div>
+            <form class="inline-form" id="profileForm">
+              <input id="profileDomain" type="text" placeholder="example.com" autocomplete="off">
+              <select id="profileChoice"></select>
+              <button class="primary-button" type="submit">Save</button>
+            </form>
+            <div class="rules-table" id="profileRules"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-label">Broken site reports</p>
+                <h3>Breakage Guard</h3>
+              </div>
+            </div>
+            <div class="rules-table" id="brokenReports"></div>
+          </article>
+        </section>
+
+        <section class="section" id="privacy">
+          <div class="two-column">
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="section-label">Privacy</p>
+                  <h3>Local controls</h3>
+                </div>
+              </div>
+              <div class="toggle-list" id="privacyToggles"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="section-label">Backup</p>
+                  <h3>Import / export settings</h3>
+                </div>
+              </div>
+              <div class="backup-actions">
+                <button class="primary-button" id="exportButton" type="button">Export settings</button>
+                <label class="file-button">
+                  Import settings
+                  <input id="importInput" type="file" accept="application/json">
+                </label>
+                <button class="danger-button" id="clearStatsButton" type="button">Clear stats</button>
+              </div>
+              <p class="muted-copy">QuietNet does not sell browsing data. Reports, stats, zaps, profiles, and rules are stored locally in Chrome extension storage.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="../shared/constants.js"></script>
+    <script src="../shared/utils.js"></script>
+    <script src="../shared/scoring.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

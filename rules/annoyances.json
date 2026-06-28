@@ -1,0 +1,178 @@
+[
+  {
+    "id": 20001,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||cookielaw.org^",
+      "resourceTypes": ["script", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 20002,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||onetrust.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 20003,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||cookiebot.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 20004,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||quantcast.mgr.consensu.org^",
+      "resourceTypes": ["script", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20005,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||iubenda.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20006,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||onesignal.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20007,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||pushengage.com^",
+      "resourceTypes": ["script", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20008,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||optinmonster.com^",
+      "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20009,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||justuno.com^",
+      "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20010,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||privy.com^",
+      "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20011,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||wisepops.com^",
+      "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20012,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||mailmunch.com^",
+      "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20013,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||sleeknote.com^",
+      "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20014,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||hellobar.com^",
+      "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20015,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||sumo.com^",
+      "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "other"]
+    }
+  },
+  {
+    "id": 20016,
+    "priority": 8,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||klaviyo.com/onsite",
+      "resourceTypes": ["script", "xmlhttprequest", "other"]
+    }
+  }
+]

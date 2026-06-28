@@ -1,0 +1,112 @@
+[
+  {
+    "id": 40001,
+    "priority": 7,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||yieldlab.net^",
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 40002,
+    "priority": 7,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||contextweb.com^",
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 40003,
+    "priority": 7,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||bluekai.com^",
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest", "ping", "other"]
+    }
+  },
+  {
+    "id": 40004,
+    "priority": 7,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||rlcdn.com^",
+      "resourceTypes": ["script", "image", "xmlhttprequest", "ping", "other"]
+    }
+  },
+  {
+    "id": 40005,
+    "priority": 7,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||zemanta.com^",
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 40006,
+    "priority": 7,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||undertone.com^",
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 40007,
+    "priority": 7,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||sovrn.com^",
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 40008,
+    "priority": 7,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||districtm.io^",
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 40009,
+    "priority": 7,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||teads.tv^",
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest", "media", "other"]
+    }
+  },
+  {
+    "id": 40010,
+    "priority": 7,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||spotxchange.com^",
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest", "media", "other"]
+    }
+  }
+]
